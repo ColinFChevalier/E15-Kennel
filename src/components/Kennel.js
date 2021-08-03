@@ -2,8 +2,7 @@ import React from "react"
 import { Animal } from "./animal/Animal"
 import { Customer } from "./customers/Customer"
 import { Employee } from "./employees/Employee"
-import { Locations } from "./locations/Locations"
-import { Customer } from "./customers/Customer"
+import { Location } from "./locations/Locations"
 import "./Kennel.css"
 
 export const Kennel = () => (
@@ -32,13 +31,13 @@ export const Kennel = () => (
 
         <h2>Locations</h2>
         <article className="locations">
-            <Locations />
-            <Locations />
-            <Locations />
+            <Location />
+            <Location />
         </article>
 
         <h2>Customers</h2>
         <article className="customers">
+            <Customer />
             <Customer />
             <Customer />
             <Customer />
