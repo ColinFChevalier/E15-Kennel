@@ -16,9 +16,10 @@
 // // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
 
-import React from "react"
-import ReactDOM from "react-dom"
-import { Kennel } from "./components/Kennel"
+import React from "react";
+import ReactDOM from "react-dom";
+import { Kennel } from "./components/Kennel";
+import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
