@@ -24,10 +24,12 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <Router>
-    <Kennel />
-  </Router>,
-  document.getElementById('root')
-);
+  <React.StrictMode>
+      <Router>
+          <Kennel />
+      </Router>
+  </React.StrictMode>,
+  document.getElementById("root")
+)
 
 reportWebVitals();
