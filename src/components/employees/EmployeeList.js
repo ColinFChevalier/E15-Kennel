@@ -22,7 +22,7 @@ export const EmployeeList = () => {
                 Name: { employee.name }
               </div>
               <div className="employee__locationId">
-                Store Location: { employee.locationId }
+                Store Location: { employee.location.address }
               </div>
             </div>
           )

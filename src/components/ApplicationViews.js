@@ -12,14 +12,15 @@ import { LocationProvider } from "./locations/LocationProvider"
 export const ApplicationViews = () => {
     return (
         <>
-            
+         <h2>Nashville Kennels</h2>
+         <small>Loving care when you're not there.</small>
+
             <LocationProvider>
                 <Route exact path="/locations">
                     <LocationList />
                 </Route>
             </LocationProvider>
 
-           
             <AnimalProvider>
                 <Route path="/animals">
                     <AnimalList />
