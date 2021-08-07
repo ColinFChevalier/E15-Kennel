@@ -13,10 +13,15 @@ import { EmployeeProvider } from "./employees/EmployeeProvider"
 
 import { LocationList } from "./locations/LocationList"
 import { LocationProvider } from "./locations/LocationProvider"
+
+import { NavBar } from "./nav/NavBar"
+import { ApplicationViews } from "./ApplicationViews"
 import "./Kennel.css"
 
 export const Kennel = () => (
-    <>
+    <>  
+        <NavBar />
+        <ApplicationViews />
         <h2>Nashville Kennels</h2>
         <small>Loving care when you're not there.</small>
 
