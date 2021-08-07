@@ -3,7 +3,7 @@ import React from "react"
 import { AnimalProvider } from "./animal/AnimalProvider"
 import { AnimalList } from "./animal/AnimalList"
 
-import { Customer } from "./customers/Customer"
+// import { Customer } from "./customers/Customer"
 import { CustomerList } from "./customers/CustomerList"
 import { CustomerProvider } from "./customers/CustomerProvider"
 
@@ -11,7 +11,8 @@ import { CustomerProvider } from "./customers/CustomerProvider"
 import { EmployeeList } from "./employees/EmployeeList"
 import { EmployeeProvider } from "./employees/EmployeeProvider"
 
-import { Location } from "./locations/Locations"
+import { LocationList } from "./locations/LocationList"
+import { LocationProvider } from "./locations/LocationProvider"
 import "./Kennel.css"
 
 export const Kennel = () => (
@@ -40,8 +41,9 @@ export const Kennel = () => (
 
         <h2>Locations</h2>
         <article className="locations">
-            <Location />
-            <Location />
+            <LocationProvider>
+                <LocationList/>
+            </LocationProvider>
         </article>
 
         <h2>Customers</h2>
