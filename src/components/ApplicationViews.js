@@ -16,7 +16,13 @@ export const ApplicationViews = () => {
          <small>Loving care when you're not there.</small>
 
             <LocationProvider>
-                <Route exact path="/locations">
+                <Route exact path="/">
+                    <LocationList />
+                </Route>
+            </LocationProvider>
+
+            <LocationProvider>
+                <Route path="/locations">
                     <LocationList />
                 </Route>
             </LocationProvider>
