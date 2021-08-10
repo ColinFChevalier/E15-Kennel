@@ -8,42 +8,41 @@ import { EmployeeList } from "./employees/EmployeeList"
 import { EmployeeProvider } from "./employees/EmployeeProvider"
 import { LocationList } from "./locations/LocationList"
 import { LocationProvider } from "./locations/LocationProvider"
+import { AnimalForm } from "./animal/AnimalForm"
 
 export const ApplicationViews = () => {
     return (
         <>
-         <h2>Nashville Kennels</h2>
-         <small>Loving care when you're not there.</small>
+            <h2>Nashville Kennels</h2>
+            <small>Loving care when you're not there.</small>
 
             <LocationProvider>
-                <Route exact path="/">
-                    <LocationList />
-                </Route>
+                <AnimalProvider>
+                    <EmployeeProvider>
+                        <CustomerProvider>
+                            <Route exact path="/">
+                                <LocationList />
+                            </Route>
+
+                            <Route path="/animals">
+                                <AnimalList />
+                            </Route>
+
+                            <Route exact path="/animals/create">
+                                <AnimalForm />
+                            </Route>
+
+                            <Route path="/employees">
+                                <EmployeeList />
+                            </Route>
+
+                            <Route path="/customers">
+                                <CustomerList />
+                            </Route>
+                        </CustomerProvider>
+                    </EmployeeProvider>
+                </AnimalProvider>
             </LocationProvider>
-
-            <LocationProvider>
-                <Route path="/locations">
-                    <LocationList />
-                </Route>
-            </LocationProvider>
-
-            <AnimalProvider>
-                <Route path="/animals">
-                    <AnimalList />
-                </Route>
-            </AnimalProvider>
-
-            <EmployeeProvider>
-                <Route path="/employees">
-                    <EmployeeList />
-                </Route>
-            </EmployeeProvider>
-
-            <CustomerProvider>
-                <Route path="/customers">
-                    <CustomerList />
-                </Route>
-            </CustomerProvider>
         </>
     )
 }

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { AnimalContext } from "./AnimalProvider"
 import "./Animal.css"
+import { useHistory } from "react-router-dom"
 
 export const AnimalList = () => {
   // This state changes when `getAnimals()` is invoked below
@@ -12,8 +13,17 @@ export const AnimalList = () => {
     getAnimals()
   }, [])
 
+  const history = useHistory()
+
   return (
-    <section className="animals">
+    <>
+      <h2>Animals</h2>
+      <button onClick={
+        () => history.push("/animals/create")
+      }>
+            Add Animal
+      </button>
+      <div className="animals">
       {
         animals.map(animal => {
           return (
@@ -28,6 +38,8 @@ export const AnimalList = () => {
           )
         })
       }
-    </section>
-  )
+      </div>
+    </>
+)
 }
+
