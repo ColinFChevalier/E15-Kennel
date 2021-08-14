@@ -8,7 +8,7 @@ export const AnimalProvider = (props) => {
     const [animals, setAnimals] = useState([])
 
     const getAnimals = () => {
-        return fetch("http://localhost:8088/animals?_expand=location?_expand=customer&_expand=location&_sort=location.id")
+        return fetch("http://localhost:8088/animals?_expand=customer&_expand=location&_sort=location.id")
         .then(res => res.json())
         .then(setAnimals)
     }
@@ -24,16 +24,16 @@ export const AnimalProvider = (props) => {
         .then(getAnimals)
     }
 
-    const addAnimals = animal => {
-        return fetch("http://localhost:8088/animals", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(animal)
-        })
-        .then(response => response.json())
-    }
+    // const addAnimals = animal => {
+    //     return fetch("http://localhost:8088/animals", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(animal)
+    //     })
+    //     .then(response => response.json())
+    // }
 
     /*
         You return a context provider which has the
@@ -43,7 +43,7 @@ export const AnimalProvider = (props) => {
     */
     return (
         <AnimalContext.Provider value={{
-            animals, getAnimals, addAnimal, addAnimals
+            animals, getAnimals, addAnimal
         }}>
             {props.children}
         </AnimalContext.Provider>
