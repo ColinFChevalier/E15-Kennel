@@ -9,7 +9,6 @@ import { EmployeeProvider } from "./employees/EmployeeProvider"
 import { LocationList } from "./locations/LocationList"
 import { LocationProvider } from "./locations/LocationProvider"
 import { AnimalForm } from "./animal/AnimalForm"
-import { EmployeeForm } from "./employees/EmployeeForm"
 
 export const ApplicationViews = () => {
     return (
@@ -21,7 +20,7 @@ export const ApplicationViews = () => {
                 <AnimalProvider>
                     <EmployeeProvider>
                         <CustomerProvider>
-                            <Route exact path="/">
+                            <Route exact path="/locations">
                                 <LocationList />
                             </Route>
 
@@ -35,10 +34,6 @@ export const ApplicationViews = () => {
 
                             <Route path="/employees">
                                 <EmployeeList />
-                            </Route>
-
-                            <Route path="/employees/create">
-                                <EmployeeForm />
                             </Route>
 
                             <Route path="/customers">
