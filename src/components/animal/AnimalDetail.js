@@ -4,7 +4,8 @@ import { useHistory } from "react-router"
 import "./Animal.css"
 import { useParams } from "react-router-dom"
 
-export const AnimalDetail = () => {
+export const AnimalDetail = (props) => {
+    console.log(props)
     const { animals, releaseAnimal } = useContext(AnimalContext)
     const [animal, setAnimal] = useState({ location: {}, customer: {} })
 
@@ -23,12 +24,14 @@ export const AnimalDetail = () => {
             })
     }
 
-
-
     useEffect(() => {
+        if (props.animal) {
+            setAnimal(props.animal)
+        } else {
         const thisAnimal = animals.find(a => a.id === parseInt(animalId)) || { location: {}, customer: {} }
 
         setAnimal(thisAnimal)
+    }
     }, [animalId])
 
     return (

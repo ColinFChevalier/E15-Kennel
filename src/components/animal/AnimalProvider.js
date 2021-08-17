@@ -47,15 +47,11 @@ export const AnimalProvider = (props) => {
         .then(res => res.json())
     }
     
-    /*
-        You return a context provider which has the
-        `animals` state, `getAnimals` function,
-        and the `addAnimal` function as keys. This
-        allows any child elements to access them.
-    */
+    const [ searchTerms, setSearchTerms ] = useState("")
+
     return (
         <AnimalContext.Provider value={{
-            animals, getAnimals, addAnimal, releaseAnimal, updateAnimal, getAnimalById
+            animals, getAnimals, addAnimal, releaseAnimal, updateAnimal, getAnimalById, searchTerms, setSearchTerms
         }}>
             {props.children}
         </AnimalContext.Provider>

@@ -1,42 +1,43 @@
-import { useHistory, Link } from 'react-router-dom'
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { AnimalContext } from "./AnimalProvider"
+import { AnimalDetail } from "./AnimalDetail"
 import "./Animal.css"
+import { useHistory } from "react-router-dom"
 
 export const AnimalList = () => {
-  const history = useHistory()
-  // This state changes when `getAnimals()` is invoked below
-  const { animals, getAnimals } = useContext(AnimalContext)
+  const { animals, getAnimals, searchTerms } = useContext(AnimalContext)
 
-  //useEffect - reach out to the world for something
+  const [ filteredAnimals, setFiltered ] = useState([])
+  const history = useHistory()
+
   useEffect(() => {
-    console.log("AnimalList: useEffect - getAnimals")
-    getAnimals()
+      getAnimals()
   }, [])
 
+  useEffect(() => {
+    if (searchTerms !== "") {
+      const subset = animals.filter(animal => animal.name.toLowerCase().includes(searchTerms.toLowerCase()))
+      setFiltered(subset)
+    } else {
+      setFiltered(animals)
+    }
+  }, [searchTerms, animals])
 
   return (
     <>
-      <h2>Animals</h2>
-      <button onClick={
-        () => history.push("/animals/create")
-      }>
-        Add Animal
-      </button>
-      <section className="animals">
-        {
-          animals.map(animal => {
-            return (
-              <div className="animal">
-                <Link to={`/animals/detail/${animal.id}`} key={animal.id}>{animal.name}</Link>
-              </div>
+      <h1>Animals</h1>
 
-            )
-          })
-        }
-      </section>
+      <button onClick={() => history.push("/animals/create")}>
+          Make Reservation
+      </button>
+      <div className="animals">
+      {
+        filteredAnimals.map(animal => {
+          return <AnimalDetail key={animal.id} animal={animal} />
+        })
+      }
+      </div>
     </>
   )
 }
-
 
