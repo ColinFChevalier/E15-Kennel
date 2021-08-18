@@ -28,10 +28,10 @@ export const AnimalDetail = (props) => {
         if (props.animal) {
             setAnimal(props.animal)
         } else {
-        const thisAnimal = animals.find(a => a.id === parseInt(animalId)) || { location: {}, customer: {} }
+            const thisAnimal = animals.find(a => a.id === parseInt(animalId)) || { location: {}, customer: {} }
 
-        setAnimal(thisAnimal)
-    }
+            setAnimal(thisAnimal)
+        }
     }, [animalId])
 
     return (
