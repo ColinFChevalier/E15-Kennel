@@ -24,6 +24,17 @@ export const EmployeeProvider = (props) => {
         .then(getEmployees)
     }
 
+    // const addEmployees = employee => {
+    //     return fetch("http://localhost:8088/employees", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(employee)
+    //     })
+    //     .then(response => response.json())
+    // }
+
     /*
         You return a context provider which has the
         `employees` state, `getEmployees` function,
