@@ -4,7 +4,7 @@ import "./Animal.css"
 
 export const AnimalSearch = () => {
   const { setSearchTerms } = useContext(AnimalContext)
-
+debugger
   return (
     <>
       Animal search:
