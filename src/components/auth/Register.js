@@ -11,7 +11,7 @@ export const Register = (props) => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`http://e15-kennel-api.herokuapp.com/customers?email=${email.current.value}`)
+        return fetch(`https://e15-kennel-api.herokuapp.com/customers?email=${email.current.value}`)
             .then(res => res.json())
             .then(user => !!user.length)
     }
@@ -23,7 +23,7 @@ export const Register = (props) => {
         existingUserCheck()
             .then((userExists) => {
                 if (!userExists) {
-                    fetch("http://e15-kennel-api.herokuapp.com/customers", {
+                    fetch("https://e15-kennel-api.herokuapp.com/customers", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"

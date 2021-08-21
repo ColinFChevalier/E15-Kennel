@@ -8,13 +8,13 @@ export const EmployeeProvider = (props) => {
     const [employees, setEmployees] = useState([])
 
     const getEmployees = () => {
-        return fetch("http://e15-kennel-api.herokuapp.com/employees?_expand=location")
+        return fetch("https://e15-kennel-api.herokuapp.com/employees?_expand=location")
         .then(res => res.json())
         .then(setEmployees)
     }
 
     const addEmployee = employeeObj => {
-        return fetch("http://e15-kennel-api.herokuapp.com/employees", {
+        return fetch("https://e15-kennel-api.herokuapp.com/employees", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -25,7 +25,7 @@ export const EmployeeProvider = (props) => {
     }
 
     // const addEmployees = employee => {
-    //     return fetch("http://e15-kennel-api.herokuapp.com/employees", {
+    //     return fetch("https://e15-kennel-api.herokuapp.com/employees", {
     //         method: "POST",
     //         headers: {
     //             "Content-Type": "application/json"
